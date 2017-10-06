@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+  
+	"name": "Getting started example",
+	"description": "This extension allows the user to change the background color of the current page.",
+	"version": "1.0",
+  
+	"browser_action": {
+	  "default_icon": "assets/icon.png",
+	  "default_popup": "popup.html"
+	},
+	"background": {
+	  "scripts": [
+		"background.js"
+	  ]
+	},
+	"content_scripts": [
+    {
+      "matches": ["http://www.github.com/*", "https://www.github.com/*", "https://github.com/*"],
+      "js": ["contentScript.js"]
+		}
+	],
+	"permissions": [
+	  "activeTab",
+		"storage",
+		"history",
+		"webRequest",
+		"*://*.github.com/",
+	  "<all_urls>"
+	]
+  }

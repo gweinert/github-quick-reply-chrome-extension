@@ -1,0 +1,16 @@
+{
+  "name": "vanilla_github_reply",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build-content": "node node_modules/requirejs/bin/r.js -o buildContentScripts.js",
+    "build-background": "node node_modules/requirejs/bin/r.js -o buildBackground.js",
+    "build-popup": "node node_modules/requirejs/bin/r.js -o buildPopup.js",
+    "build": "yarn build-content && yarn build-background && yarn build-popup && yarn copy-assets",
+    "copy-assets": "cp -R src/assets src/manifest.json src/popup.html dist/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "requirejs": "^2.3.5"
+  }
+}

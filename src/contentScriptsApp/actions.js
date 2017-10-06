@@ -1,0 +1,3 @@
+define({
+	clickReply: 'click reply'
+});
