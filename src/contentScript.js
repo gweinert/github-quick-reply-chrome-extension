@@ -2,7 +2,6 @@
 requirejs(['contentScriptsApp/replyButton', 'contentScriptsApp/replyInput'], function(ReplyButton, ReplyInput) {
 	
 	var ContentScript = function() {
-		console.log('running?');
 		this.addMessageListener();
 		this.injectNodes();
 	};
@@ -14,7 +13,7 @@ requirejs(['contentScriptsApp/replyButton', 'contentScriptsApp/replyInput'], fun
 				if (mes.action === 'updated') {
 					this.injectNodes();
 				}
-			});
+			}.bind(this));
 		},
 	
 		injectNodes: function() {
@@ -28,12 +27,9 @@ requirejs(['contentScriptsApp/replyButton', 'contentScriptsApp/replyInput'], fun
 					var replyInputNode = new ReplyInput();
 					replyButtonNode.subscribe(replyInputNode);
 		
-					if ( commentHeaderActionContainer) {
+					if (commentHeaderActionContainer) {
 						var toInsertBefore = commentHeaderActionContainer.childNodes[5];
-						// commentContainer.querySelector('.timeline-comment-header-text').style.maxWidth = '70%';
 						commentHeaderActionContainer.insertBefore(replyButtonNode.render(), toInsertBefore);
-						// commentHeaderActionContainer.appendChild(replyButtonNode.render());
-
 					}
 					commentContainer.appendChild(replyInputNode.render());	
 				});

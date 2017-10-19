@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
   
-	"name": "Getting started example",
-	"description": "This extension allows the user to change the background color of the current page.",
-	"version": "1.0",
+	"name": "GitHub Quick Reply",
+	"description": "This extension allows the user to quickly reply to comments on GitHub.",
+	"version": "0.0.1",
   
 	"browser_action": {
-	  "default_icon": "assets/icon.png",
+	  "default_icon": "assets/logo_small.png",
 	  "default_popup": "popup.html"
 	},
 	"background": {
@@ -25,7 +25,6 @@
 		"storage",
 		"history",
 		"webRequest",
-		"*://*.github.com/",
-	  "<all_urls>"
+		"*://*.github.com/"
 	]
   }
